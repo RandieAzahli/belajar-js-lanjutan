@@ -44,7 +44,7 @@
 // let Randi = Mahasiswa("Randi", 10);
 // let Sandi = Mahasiswa("Sandi", 20);
 
-// // * constructor function
+// * constructor function
 
 // function Mahasiswa(nama, energy) {
 //   this.nama = nama;
@@ -64,28 +64,79 @@
 
 // * object.create()
 
-let methodeMahasiswa = {
-    makan: function (porsi) {
-        this.energy += porsi;
-        console.log(`Hallo ${this.nama} ! selamat makan ...`);
-    },
+// let methodeMahasiswa = {
+//     makan: function (porsi) {
+//         this.energy += porsi;
+//         console.log(`Hallo ${this.nama} ! selamat makan ...`);
+//     },
 
-    main: function (jam) {
-        this.energy -= jam;
-        console.log(`Hallo ${this.nama} ! selamat bermain ...`);
-    },
+//     main: function (jam) {
+//         this.energy -= jam;
+//         console.log(`Hallo ${this.nama} ! selamat bermain ...`);
+//     },
 
-    tidur: function (jam) {
-        this.energy += jam * 2;
-        console.log(`Hallo ${this.nama} ! selamat tidur ...`);
-    },
-};
+//     tidur: function (jam) {
+//         this.energy += jam * 2;
+//         console.log(`Hallo ${this.nama} ! selamat tidur ...`);
+//     },
+// };
 
-function Mahasiswa(nama, energy) {
-    let mahasiswa = Object.create(methodeMahasiswa);
-    mahasiswa.nama = nama;
-    mahasiswa.energy = energy;
-    return mahasiswa;
+// function Mahasiswa(nama, energy) {
+//     let mahasiswa = Object.create(methodeMahasiswa);
+//     mahasiswa.nama = nama;
+//     mahasiswa.energy = energy;
+//     return mahasiswa;
+// }
+
+// let randi = Mahasiswa("Randi", 20);
+
+// * prototype inheritance
+
+// function Mahasiswa(nama, energy) {
+//     this.nama = nama;
+//     this.energy = energy;
+// }
+
+// Mahasiswa.prototype.makan = function (porsi) {
+//     this.energy += porsi;
+//     return `Hallo ${this.nama} ! selamat makan ...`;
+// };
+
+// Mahasiswa.prototype.main = function (jam) {
+//     this.energy -= jam;
+//     return `Hallo ${this.nama} ! selamat bermain ...`;
+// };
+
+// Mahasiswa.prototype.tidur = function (jam) {
+//     this.energy += jam * 2;
+//     return `Hallo ${this.nama} ! selamat tidur ...`;
+// };
+
+// let randi = new Mahasiswa("Randi", 10);
+
+// * class inheritance
+
+class Mahasiswa {
+    constructor(nama, energi) {
+        this.nama = nama;
+        this.energi = energi;
+    }
+
+    makan(porsi) {
+        this.energi += porsi;
+        return `Hallo ${this.nama} ! selamat makan ...`;
+    }
+
+    main(jam) {
+        this.energi -= jam;
+        return `Hallo ${this.nama} ! selamat bermain ...`;
+    }
+
+    tidur(jam) {
+        this.energi += jam * 2;
+        return `Hallo ${this.nama} ! selamat tidur ...`;
+    }
 }
 
-let randi = Mahasiswa("Randi", 20);
+let randi = new Mahasiswa("Randi", 10);
+let sandi = new Mahasiswa("Sandi", 10);
